@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 这里路径要和接口完全一致 -->
+<mapper namespace="com.mapper.LogMapper">
+	<!-- Id要和接口里面的方法完全一致 -->
+	<select id="selAll" resultType="LogInfo">
+		select * from log
+	</select>
+
+	<!-- 多参数是不需要写parameterType -->
+	<select id="selByAccOutAccIn1" resultType="LogInfo">
+		select* from log where accout=#{0} and accin=#{1}
+	</select>
+	<select id="selByAccOutAccIn2" resultType="LogInfo">
+		select* from log where accout=#{param1} and accin=#{param2}
+	</select>
+	<select id="selByAccOutAccIn3" resultType="LogInfo">
+		select* from log where accout=#{accOut} and accin=#{accIn}
+	</select>
+</mapper>
